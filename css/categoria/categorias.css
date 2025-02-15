@@ -1,0 +1,178 @@
+:root {
+    /* Cores */
+    --primary-color: #1875E8;
+    --primary-hover: #135dbd;
+    --secondary-color: #0A1420;
+    --secondary-hover: #121F2F;
+    --white: #FFFFFF;
+    --background: #F8FAFC;
+    --text-color: #1E293B;
+    --success-color: #22C55E;
+    
+    /* Espaçamento */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    
+    /* Outras propriedades */
+    --border-radius: 0.5rem;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --z-index-header: 1000;
+    --header-height: 80px;
+  }
+  
+  /* HEADER */
+  .header {
+    height: var(--header-height);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: linear-gradient(to right, #2099f1, #133b76) !important;
+    box-shadow: var(--shadow);
+    width: 100%;
+    top: 0;
+    z-index: var(--z-index-header);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* NAVEGAÇÃO */
+  .nav {
+    gap: var(--spacing-sm);
+    display: flex;
+    align-items: center;
+  }
+  
+  /* BOTÕES */
+  [class*="nav__btn--"] {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-weight: 500;
+    border: 2px solid transparent;
+  }
+  
+  .nav__btn--faq {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white) !important;
+    backdrop-filter: blur(5px);
+  }
+  
+  .nav__btn--login {
+    background: transparent !important;
+    color: var(--white) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+  }
+  
+  .nav__btn--register {
+    background: var(--primary-color) !important;
+    color: var(--white) !important;
+    border-color: var(--primary-color) !important;
+  }
+  
+  /* HOVER */
+  .nav__btn--faq:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    transform: translateY(-2px);
+  }
+  
+  .nav__btn--login:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: var(--white) !important;
+  }
+  
+  .nav__btn--register:hover {
+    background: var(--primary-hover) !important;
+    border-color: var(--primary-hover) !important;
+    box-shadow: 0 4px 12px rgba(24, 117, 232, 0.3);
+  }
+  
+  /* LAYOUT PRINCIPAL */
+  .main-container {
+    height: calc(100vh - var(--header-height));
+    margin-top: var(--header-height);
+  }
+  
+  #content {
+    padding: var(--spacing-lg);
+    overflow-y: auto;
+  }
+  
+  /* CARDS */
+  .card {
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    height: 100%;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-img-top {
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover .card-img-top {
+    transform: scale(1.03);
+  }
+  
+  .btn-primary {
+    background: var(--primary-color) !important;
+    border: none !important;
+    padding: var(--spacing-xs) var(--spacing-md);
+    transition: var(--transition);
+  }
+  
+  .btn-primary:hover {
+    background: var(--primary-hover) !important;
+    transform: translateY(-2px);
+  }
+  
+  /* RESPONSIVIDADE */
+  @media (max-width: 768px) {
+    .header {
+      height: auto;
+      flex-direction: column;
+      padding: var(--spacing-sm);
+      position: relative;
+    }
+  
+    .main-container {
+      height: auto;
+      margin-top: 0;
+    }
+  
+    .nav {
+      width: 100%;
+      justify-content: center;
+      margin-top: var(--spacing-sm);
+      flex-wrap: wrap;
+    }
+  
+    [class*="nav__btn--"] {
+      padding: var(--spacing-xs) var(--spacing-sm);
+      font-size: 0.85rem;
+      flex: 1 1 auto;
+    }
+  
+    .card-img-top {
+      height: 200px;
+    }
+  
+    #content {
+      padding: var(--spacing-md);
+    }
+  }
